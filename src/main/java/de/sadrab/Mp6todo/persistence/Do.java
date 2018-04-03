@@ -1,4 +1,4 @@
-package de.sadrab.Mp6todo;
+package de.sadrab.Mp6todo.persistence;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Do {
 
     @Id
-    private String Id;
+    private String id;
 
     private String task;
 
@@ -16,16 +16,17 @@ public class Do {
     public Do() {
     }
 
-    public Do(String task) {
+    public Do(String task, Boolean done) {
         this.task = task;
+        this.done = done;
     }
 
     public String getId() {
-        return Id;
+        return id;
     }
 
     public void setId(String id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getTask() {
@@ -47,7 +48,7 @@ public class Do {
     @Override
     public String toString() {
         return "Do[" +
-                "Id:'" + Id + '\'' +
+                "Id:'" + id + '\'' +
                 ", task:'" + task + '\'' +
                 ", is done:" + done +
                 ']';
